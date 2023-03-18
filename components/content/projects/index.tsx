@@ -1,17 +1,17 @@
-import {Card, Row, Text} from '@nextui-org/react';
+import { Card, Row, Text } from '@nextui-org/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import {SectionAnimation} from '../../animations/section';
-import {Box} from '../../styles/box';
-import {GridContainer} from '../../styles/grid';
-import {projects} from './utils';
+import { SectionAnimation } from '../../animations/section';
+import { Box } from '../../styles/box';
+import { GridContainer } from '../../styles/grid';
+import { projects } from './utils';
 
 export const Projects = () => {
    return (
-      <Box>
-         <Text h2 css={{'@xsMax': {textAlign: 'center'}}}>
-            Work
+      <Box css={{ px: "$12", "@xsMax": { px: "$10" }, width: "100%" }}>
+         <Text h1 css={{ textGradient: "45deg, $blue600 -20%, $pink600 50%", }}>
+            업사이클
          </Text>
          <GridContainer
             cols={{
@@ -49,17 +49,19 @@ export const Projects = () => {
                               flex: 'auto',
                            }}
                         >
-                           <Image
-                              src={project.img}
-                              width={302}
-                              layout="responsive"
-                              alt={project.alt}
-                              objectFit="cover"
-                              height={140}
-                              quality={100}
-                           />
+                           <div>
+                              <Image
+                                 src={project.img}
+                                 width={302}
+                                 layout="responsive"
+                                 alt={project.alt}
+                                 objectFit="cover"
+                                 height={140}
+                                 quality={100}
+                              />
+                           </div>
                         </Card.Body>
-                        <Card.Footer css={{justifyItems: 'flex-start'}}>
+                        <Card.Footer css={{ justifyItems: 'flex-start' }}>
                            <Row
                               wrap="wrap"
                               justify="space-between"

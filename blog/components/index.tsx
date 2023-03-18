@@ -1,4 +1,5 @@
 import { Link, Text } from "@nextui-org/react";
+import { Box } from "../../components/styles/box";
 import { Code } from "./Code";
 
 export const components = {
@@ -26,6 +27,7 @@ export const components = {
   a: (props: any) => {
     const isRelativeUrl = !/^([a-z0-9]*:|.{0})\/\/.*$/gim.test(props.href);
     return (
+
       <Link
         href={props.href}
         target={isRelativeUrl ? "_self" : "_blank"}
@@ -33,6 +35,7 @@ export const components = {
       >
         {props.children}
       </Link>
+
     );
   },
 };

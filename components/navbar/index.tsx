@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import {Navbar, Link, Text} from '@nextui-org/react';
-import {LogoIcon} from '../icons/logo-icon';
-import {Toggle} from './toggle';
-import {useRouter} from 'next/router';
+import React, { useEffect, useState } from 'react';
+import { Navbar, Link, Text } from '@nextui-org/react';
+import { LogoIcon } from '../icons/logo-icon';
+import { Toggle } from './toggle';
+import { useRouter } from 'next/router';
 import NextLink from 'next/link';
 
 export const NavbarWrapper = () => {
@@ -10,6 +10,7 @@ export const NavbarWrapper = () => {
    const [activeMenu, setActiveMenu] = useState();
    const router = useRouter();
    const collapseItems = ['About', 'Projects', 'Blog'];
+   const collapseItems_KO = ['리백런', '업사이클', '설명서'];
 
    useEffect(() => {
       // @ts-ignore
@@ -67,7 +68,7 @@ export const NavbarWrapper = () => {
             >
                <LogoIcon />
                <Text b color="inherit">
-                  Mauricio Siu
+                  ITASEOUL
                </Text>
             </Navbar.Brand>
          </NextLink>
@@ -79,7 +80,7 @@ export const NavbarWrapper = () => {
          >
             <NextLink href="/">
                <Navbar.Link isActive={router.pathname === '/'}>
-                  About
+                  {collapseItems_KO[0]}
                </Navbar.Link>
             </NextLink>
             <NextLink href="/projects">
@@ -87,16 +88,17 @@ export const NavbarWrapper = () => {
                   href="#"
                   isActive={router.pathname.includes('/projects')}
                >
-                  Projects
+                  {collapseItems_KO[1]}
                </Navbar.Link>
             </NextLink>
 
             <NextLink href="/blog">
                <Navbar.Link href="#" isActive={router.pathname === '/blog'}>
-                  Blog
+                  {collapseItems_KO[2]}
                </Navbar.Link>
             </NextLink>
          </Navbar.Content>
+
          <Navbar.Content
             css={{
                '@xs': {
@@ -107,6 +109,7 @@ export const NavbarWrapper = () => {
          >
             <Toggle />
          </Navbar.Content>
+
          <Navbar.Collapse isOpen={isSideMenuOpen}>
             {collapseItems.map((item, index) => (
                <Navbar.CollapseItem
@@ -128,7 +131,7 @@ export const NavbarWrapper = () => {
                         }}
                         href="#"
                      >
-                        {item}
+                        {collapseItems_KO[index]}
                      </Link>
                   </NextLink>
                </Navbar.CollapseItem>

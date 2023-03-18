@@ -40,15 +40,13 @@ const Blog = ({ sources }: Props) => {
   return (
     <BlogLayout>
       <Flex direction={"column"} css={{}}>
-        <Text h1>Blog</Text>
+        <Text h1 css={{ textGradient: "45deg, $blue600 -20%, $pink600 50%", }}>설명서</Text>
         <Text span css={{ color: "$accents8" }}>
-          Ive been writing online since 2014, mostly about web development and
-          tech careers. In total, Ive written 51 articles on my blog. Use the
-          search below to filter by title.
+          베타 버전 입니다.
         </Text>
         <Box css={{ my: "$8" }}>
           <Input
-            placeholder="Search by title"
+            placeholder="검색하기"
             css={{
               width: "100%",
               "& .nextui-input-wrapper": {
@@ -60,7 +58,7 @@ const Blog = ({ sources }: Props) => {
           />
         </Box>
 
-        <Text h3>All posts</Text>
+        <Text h3 css={{ mt: "$10" }}>전체</Text>
 
         <Flex direction={"column"} gap={"lg"}>
           {blogs.length === 0 && (
@@ -73,8 +71,9 @@ const Blog = ({ sources }: Props) => {
               <Flex
                 direction={"column"}
                 css={{
-                  py: "$8",
-                  px: "$4",
+                  backgroundColor: "$accents1",
+                  py: "$12",
+                  px: "$7",
                   cursor: "pointer",
                   borderRadius: "$sm",
                   "&:hover": {

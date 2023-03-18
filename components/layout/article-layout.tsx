@@ -1,15 +1,15 @@
 import Head from 'next/head';
 import React from 'react';
-import {LayoutAnimation} from '../animations/layout';
-import {Flex} from '../styles/flex';
+import { LayoutAnimation } from '../animations/layout';
+import { Flex } from '../styles/flex';
 
 interface Props {
    children: React.ReactNode;
    title?: string;
 }
 
-export const ArticleLayout = ({children, title}: Props) => {
-   const t = `${title} - Mauricio Siu`;
+export const ArticleLayout = ({ children, title }: Props) => {
+   const t = `${title} - ITASEOUL`;
    return (
       <LayoutAnimation>
          <Flex

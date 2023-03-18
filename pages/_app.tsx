@@ -5,6 +5,8 @@ import { createTheme, NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { AnimatePresence } from "framer-motion";
 import { MainLayout } from "../components/layout/main-layout";
+import { SSRProvider } from "react-aria";
+import { NextPage } from "next";
 
 const lightTheme = createTheme({
   type: "light",
@@ -24,32 +26,43 @@ if (typeof window !== "undefined") {
   window.history.scrollRestoration = "manual";
 }
 
-function MyApp({ Component, pageProps }: AppProps) {
+
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  isFluid?: boolean;
+};
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   return (
-    <NextThemesProvider
-      defaultTheme="system"
-      attribute="class"
-      value={{
-        light: lightTheme.className,
-        dark: darkTheme.className,
-      }}
-    >
-      <NextUIProvider>
-        <AnimatePresence
-          exitBeforeEnter
-          initial={true}
-          onExitComplete={() => {
-            if (typeof window !== "undefined") {
-              window.scrollTo({ top: 0 });
-            }
-          }}
-        >
-          <MainLayout>
-            <Component {...pageProps} />
-          </MainLayout>
-        </AnimatePresence>
-      </NextUIProvider>
-    </NextThemesProvider>
+    <SSRProvider>
+      <NextThemesProvider
+        defaultTheme="system"
+        attribute="class"
+        value={{
+          light: lightTheme.className,
+          dark: darkTheme.className,
+        }}
+      >
+        <NextUIProvider>
+          <AnimatePresence
+            mode='wait'
+            initial={true}
+            onExitComplete={() => {
+              if (typeof window !== "undefined") {
+                window.scrollTo({ top: 0 });
+              }
+            }}
+          >
+            <MainLayout>
+              <Component {...pageProps} />
+            </MainLayout>
+          </AnimatePresence>
+        </NextUIProvider>
+      </NextThemesProvider>
+    </SSRProvider>
   );
 }
 
