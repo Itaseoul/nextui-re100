@@ -122,7 +122,7 @@ function RunControls(props: any) {
 	}
 
 	function error({ code }: any) {
-		dispatch(setGps("error"));
+		dispatch(setGps(false));
 		pause();
 		let message;
 		switch (code) {

@@ -14,7 +14,7 @@ export default function Index({ }: Props) {
   return (
     <StoreProvider store={store} >
       <ChakraProvider theme={global}>
-        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+        <ColorModeScript initialColorMode={global.config.initialColorMode} />
         <DataProvider>
           <RunLayout >
             <Run />
