@@ -37,10 +37,11 @@ const Blog = ({ sources }: Props) => {
     setBlogs(filteredBlogs);
   };
 
+
   return (
     <BlogLayout>
       <Flex direction={"column"} css={{}}>
-        <Text h1 css={{ textGradient: "45deg, $green600 25%, $pink600 45%", }}>설명서</Text>
+        <Text h1 css={{ textGradient: "45deg, $green600 75%, $pink600 75%", width: "fit-content" }}>설명서</Text>
         <Text span css={{ color: "$accents8" }}>
           베타 버전 입니다.
         </Text>
@@ -63,7 +64,7 @@ const Blog = ({ sources }: Props) => {
         <Flex direction={"column"} gap={"lg"}>
           {blogs.length === 0 && (
             <Text span css={{ color: "$accents8" }}>
-              No results found
+              게시물이 없습니다.
             </Text>
           )}
           {blogs.map((item) => (
@@ -71,9 +72,10 @@ const Blog = ({ sources }: Props) => {
               <Flex
                 direction={"column"}
                 css={{
-                  backgroundColor: "$accents1",
-                  py: "$12",
-                  px: "$7",
+                  backgroundColor: "none",
+                  boxShadow: "$lg",
+                  py: "$10",
+                  px: "$10",
                   cursor: "pointer",
                   borderRadius: "$sm",
                   "&:hover": {
@@ -82,7 +84,7 @@ const Blog = ({ sources }: Props) => {
                 }}
               >
                 <Flex gap={"xl"}>
-                  <Text h4>{item.title}</Text>
+                  <Text color="success" h4>{item.title}</Text>
                   <Text
                     span
                     css={{
@@ -96,7 +98,7 @@ const Blog = ({ sources }: Props) => {
                   </Text>
                 </Flex>
 
-                <Text span css={{ color: "$accents8" }}>
+                <Text span css={{ color: "$accents6", mt: "$4", fs: '$sm' }}>
                   {item.description}
                 </Text>
               </Flex>

@@ -9,8 +9,8 @@ import { projects } from './utils';
 
 export const Projects = () => {
    return (
-      <Box css={{ px: "$12", "@xsMax": { px: "$10" }, width: "100%" }}>
-         <Text h1 css={{ textGradient: "45deg, $green600 25%, $pink600 45%", }}>
+      <Box css={{ "@xsMax": { px: "$10" }, width: "100%" }}>
+         <Text h1 css={{ textGradient: "45deg, $green600 75%, $pink600 75%", width: "fit-content" }}>
             업사이클
          </Text>
          <GridContainer

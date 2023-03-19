@@ -19,7 +19,7 @@
     "autoprefixer": "^10.4.14",
     "dayjs": "^1.11.6",
     "easytimer-react-hook": "^1.0.3",
-    "easytimer.js": "^4.5.4",
+    "easytimer.js": "^4.5.4", 
     "firebase": "^9.18.0",
     "framer-motion": "^10.6.0",
     "immer": "^9.0.19",

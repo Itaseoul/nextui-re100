@@ -2,14 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  /* --nextui--linkColor:  #17c964 */
+  --nextui-colors-link: #17c964;
+}
 html,
 body {
    padding: 0;
    margin: 0;
    font-family: pretendard variable, sans-serif;
    background-color: var(--nextui-colors-accents0);
+
    /* transition: background-color 0.2s ease; */
 }
+@media screen and max-width(768px) {
+  html,
+  body {
+    height: calc(var(--vh, 1vh) * 100); 
+    /** 브라우저 세로 높이 */
+  }
+}
+  
+
 
 /* [data-theme='dark'] {
    --background: black;
@@ -32,3 +46,8 @@ body {
    color: #17c964;
    font-size:28px;
  }
+
+ /* var(--nextui-zIndices-2); // 200 */
+ .nextui-button-text {
+  z-index: 0!important;; 
+}

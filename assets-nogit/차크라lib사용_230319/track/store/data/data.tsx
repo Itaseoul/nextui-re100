@@ -1,12 +1,5 @@
 import produce, { Draft } from "immer";
 
-interface DataState {
-	distance: string;
-	duration: string;
-	startTime: number;
-	coords: any[];
-}
-
 interface SetDistanceAction {
 	type: typeof SET_DISTANCE;
 	payload: string;
@@ -38,7 +31,12 @@ type DataActionTypes =
 	| SetStartTimeAction
 	| SetCoordsAction;
 
-
+interface DataState {
+	distance: string;
+	duration: string;
+	startTime: number;
+	coords: any[];
+}
 
 const SET_DISTANCE = "data/set_telemetry";
 const SET_DURATION = "data/set_running_time";
