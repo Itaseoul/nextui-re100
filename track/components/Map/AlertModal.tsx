@@ -20,7 +20,7 @@ import { displayToast } from "../../utils/helpers";
 function AlertModal({ timer, stopwatch }) {
 	const bg = useColorModeValue("green.400", "green.900");
 	const color = useColorModeValue("green.900", "green.400");
-	const { postRun } = useData();
+	const { postRun }: any = useData();
 	const { isAlertOpen, map, geolocate, isRunInProgress } = useSelector((state) => state.map);
 	const { distance, duration, startTime } = useSelector((state) => state.data);
 	const dispatch = useDispatch();

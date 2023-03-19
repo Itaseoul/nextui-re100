@@ -25,7 +25,7 @@ function RunControls(props: any) {
 		mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_API_KEY || "";
 		const map = new mapboxgl.Map({
 			container: mapContainer,
-			style: "mapbox://styles/mapbox/streets-v11",
+			style: "mapbox://styles/mapbox/dark-v11",
 			center: [longitude, latitude],
 			zoom: 17.5,
 			attributionControl: false,

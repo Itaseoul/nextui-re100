@@ -19,7 +19,7 @@ function DataProvider(props: any) {
 	const dispatch = useDispatch();
 
 	async function deleteChosenRun(key: any) {
-		return;
+		dispatch(deleteRun(key));
 		// TODO-check: delete run from firebase(anonymous / logged user data)
 		// if (user.isAnonymous) {
 		// 	dispatch(deleteRun(key));
@@ -62,6 +62,7 @@ function DataProvider(props: any) {
 	useEffect(() => {
 		if (user) {
 			const getRunHistory: any = async () => {
+
 				// if (user.isAnonymous) {
 				// 	setIsLoading(false);
 				// 	return;

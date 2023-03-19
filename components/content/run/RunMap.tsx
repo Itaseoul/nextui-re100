@@ -49,8 +49,10 @@ function RunMap() {
     <Box position="absolute" top='0' left='0' right='0' overflow="hidden" color={color} bg="#16181a">
 
       <Box h="100vh" p="20px" overflowY="scroll" overflowX="hidden" alignItems="flex-end" >
+        <Stats />
         <Flex h="100%" alignItems='flex-end' justifyContent='center' gap='2' p="20px">
           <Center>
+
             <IconButton
               aria-label="button"
               onClick={openDrawer}
@@ -61,10 +63,10 @@ function RunMap() {
               color="white"
               icon={<FaRunning fontSize="100px" />}
             />
-            <Text fontSize='3xl'>GPS</Text>
+            {/* <Text fontSize='3xl'>GPS</Text> */}
           </Center>
         </Flex>
-        {/* <Stats /> */}
+
       </Box>
 
       <Map />

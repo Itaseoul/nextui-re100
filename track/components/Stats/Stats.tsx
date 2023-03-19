@@ -20,14 +20,21 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { useSelector } from "react-redux";
 import { useData } from "../../context/DataProvider";
 
-export default function Stats(props) {
+
+interface IData {
+	deleteChosenRun: any;
+	isLoading: boolean;
+}
+
+
+export default function Stats(props: any) {
 	const bg = useColorModeValue("gray.400", "gray.900");
 	const color = useColorModeValue("gray.900", "gray.400");
-	const { runs } = useSelector((state) => state.history);
-	const { deleteChosenRun, isLoading } = useData();
+	const { runs } = useSelector((state: any) => state.history);
+	const { deleteChosenRun, isLoading } = useData() as IData;
 
 	return (
-		<Box w="100%" overflow="hidden" p="10px 0 0 10px" pb="0" borderRadius="5px" bg={color} color={bg}>
+		<Box w="50%" overflow="hidden" p="100px 0 0 10px" pb="0" borderRadius="5px" bg={color} color={bg}>
 			<Heading mb="5">History</Heading>
 			<Box h="50vh" overflowY="scroll">
 				{isLoading && (
@@ -43,7 +50,7 @@ export default function Stats(props) {
 				{!isLoading && Object.keys(runs).length > 0 && (
 					<List spacing="10px">
 						{Object.keys(runs)
-							.sort((a, b) => b - a)
+							.sort((a, b) => parseInt(b) - parseInt(a))
 							.map((el) => {
 								const { distance, duration } = runs[el];
 								return (
@@ -51,6 +58,7 @@ export default function Stats(props) {
 										<Divider bg={bg} />
 										<ListItem position="relative">
 											<IconButton
+												aria-label="delete"
 												zIndex="5"
 												icon={<RiDeleteBin6Line />}
 												position="absolute"
