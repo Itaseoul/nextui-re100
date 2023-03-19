@@ -11,7 +11,7 @@ interface EnergyData {
 }
 
 export default function GetPowerStream() {
-  const [earray, setEarray] = useState();
+  const [earray, setEarray] = useState<EnergyData[]>([]);
   const [curValue, setCurValue] = useState(0);
   const [sumValue, setSumValue] = useState<number>(0);
 
@@ -21,8 +21,19 @@ export default function GetPowerStream() {
 
     const handleData = (snapshot: any) => {
       const data = snapshot.val()
+
+      // Extract energy data from snapshot
+      const energydata: EnergyData[] = extractEnergyData(data);
+
       // Update state with energy data
-      setEarray(data);
+      setEarray(energydata);
+      setCurValue(getCurrentEnergyValue(energydata));
+      setSumValue(getTotalEnergyValue(energydata));
+
+      // Log additional information
+      const minValue = getMinEnergyValue(energydata);
+      const maxValue = getMaxEnergyValue(energydata);
+      const estimatedServerTimeMs = getEstimatedServerTimeMs(data);
       // console.log(getFilteredEnergyValues(energydata), minValue, maxValue, estimatedServerTimeMs);
     };
 
@@ -39,8 +50,8 @@ export default function GetPowerStream() {
   // Render component
   return (
     <div className='container-power'>
-      {/* <p className="curvalue">{convertSecToTime(chargingSeconds)}</p> */}
-      {/* <p className='curvalue'>Current value: {curValue}</p> */}
+      <p className="curvalue">{convertSecToTime(chargingSeconds)}</p>
+      <p className='curvalue'>Current value: {curValue}</p>
       <pre>{JSON.stringify(earray, null, 4)}</pre>
     </div>
   );
