@@ -8,6 +8,7 @@ import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { LinkIcon } from "../../icons/link-icon";
 import { GridContainer } from "../../styles/grid";
+import { BsSkipStartBtn, BsViewList } from "react-icons/bs";
 
 export const Home = () => {
   const router = useRouter();
@@ -31,7 +32,7 @@ export const Home = () => {
             리백런
           </Text>
           <Text css={{ fontFamily: "inherit" }}>
-            에너지절약 이니셔티브 러닝
+            에너지 절약 이니셔티브 러닝
           </Text>
         </Box>
 
@@ -54,23 +55,25 @@ export const Home = () => {
               lineHeight: "2em",
               display: "block",
               color: "darkgray",
+              whiteSpace: "pre-line",
             }}
-          >
-            에너지 절약 이니셔티브인 RE100Run을 소개합니다. 이 프로젝트는 보다 지속 가능한 미래를 만들기 위해 노력하는 열정적인 개인 그룹의 아이디어입니다. 목표는 간단합니다. 재활용 PET 병으로 만든 소규모 풍력 터빈을 사용하여 풍력 에너지의 힘을 활용하는 것입니다. 이 프로젝트는 오래된 모터를 역회전시켜 풍력 에너지를 생성하는 데 사용함으로써 팀은 지속 가능하고 환경 친화적인 방식으로 전기를 생산할 수 있습니다. 커뮤니티의 도움으로 팀은 함께 터빈을 작동하고 에너지를 생성하여 한 번에 한 단계씩 세상을 밝힐 계획입니다. RE100Run은 에너지를 생성하는 것뿐만 아니라 생성된 에너지를 추적하는 것입니다. 팀은 터빈에서 생성된 모든 에너지를 기록하고 서버에 저장하여 참가자가 기여도를 추적하고 노력의 영향을 모니터링할 수 있도록 합니다. RE100Run 팀은 지속 가능한 에너지의 메시지를 전파하는 데 열정적이며 이 프로젝트를 글로벌 캠페인으로 전환하기로 결정했습니다. 커뮤니티의 지원을 통해 다른 사람들이 노력에 동참하고 환경에 긍정적인 영향을 미치도록 격려할 수 있기를 바랍니다. 이 혁신적인 프로젝트는 에너지 생산 및 지속 가능성에 대한 우리의 사고 방식을 혁신할 수 있는 잠재력을 가지고 있습니다. RE100-Run은 재활용 재료와 지역 사회 참여를 활용하여 보다 지속 가능한 미래를 위한 길을 닦고 있습니다. 관심을 끌고 전 세계 커뮤니티에 변화를 가져오는 이 흥미진진한 이니셔티브에 주목해 주세요.
+          >RE100Run은 에너지 절약 이니셔티브로서, 지속 가능한 미래를 위한 에너지 발전 러닝 캠페인 아이디어 입니다. 이타서울 사회공헌팀은 22년 재활용 PET 병과 폐가전제품과 폐장난감의 모터,부품을 사용해 만든 마이크로 풍력 발전기를 만들었습니다. 캠페인 러너들은 본 소형발전기를 들고 달립니다. 바람이 모터를 역회전시켜 얻는 작은 풍력 에너지를 만들고, 생성된 에너지를 서버에 저장하여 참가자가 기여도를 추적하고 노력의 영향을 모니터링할 수 있도록 합니다.
+
+            RE100Run 팀은 지속 가능한 미래에너지를 위한 인식확산을 위해, 일련의 준비를 거쳐 23년도 RE100Run을 공개 캠페인으로 전환할 예정입니다. 우리는 독특한 캠페인 체험이 에너지 생산 및 지속 가능성에 대한 미래세대의 사고 방식을 혁신할 수 있는 잠재력을 가지고 있다고 확신합니다.나아가 RE100Run 프로그램은 재활용 전기/전자 재료와 지역 사회 커뮤니티 교육으로 확산되어 보다 지속 가능한 미래를 위한 동기가 될 수 있습니다.
           </Text>
 
 
 
 
           <Flex justify={"center"} css={{ mt: "$8" }}>
-            <NextLink href="/projects" >
+            <NextLink href="/run" passHref >
               <Link block css={{ gap: "$4" }}>
-                <Button flat color="success" auto>업사이클</Button>
+                <Button flat color="success" auto><BsSkipStartBtn />{" "}시작하기</Button>
               </Link>
             </NextLink>
-            <NextLink href="/blog">
+            <NextLink href="/blog" passHref >
               <Link block css={{ gap: "$4" }}>
-                <Button bordered color="success" auto>시작</Button>
+                <Button bordered color="success" auto><BsViewList />{" "}사용법보기</Button>
               </Link>
             </NextLink>
           </Flex>

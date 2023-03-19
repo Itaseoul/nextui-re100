@@ -8,7 +8,7 @@ interface Props {
    children: React.ReactNode;
 }
 
-export const MainLayout = ({ children }: Props) => {
+export const RunLayout = ({ children }: Props) => {
    return (
       <Box as="main">
          <Head>
@@ -31,13 +31,14 @@ export const MainLayout = ({ children }: Props) => {
             <title>ITASEOUL - Homepage</title>
          </Head>
 
-         <NavbarWrapper />
+         {/* <NavbarWrapper /> */}
          <Box
             css={{
                height: '90%',
-               display: 'flex',
-               flexDirection: 'column',
-               justifyContent: 'space-between',
+               overflow: 'hidden',
+               display: 'block',
+               // flexDirection: 'column',
+               // justifyContent: 'space-between',
             }}
          >
             {children}
