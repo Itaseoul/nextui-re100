@@ -10,47 +10,47 @@ const SET_PAUSE = "map/set_pause";
 const RESET_MAP_STATE = "map/reset_map_state";
 const SET_TELEMETRY_STATE = "map/set_telemetry_state";
 
-export const setMapDrawer = (payload) => ({
+export const setMapDrawer = (payload: any) => ({
 	type: SET_DRAWER_STATE,
 	payload,
 });
 
-export const setTelemetryState = (payload) => ({
+export const setTelemetryState = (payload: any) => ({
 	type: SET_TELEMETRY_STATE,
 	payload,
 });
 
-export const setAlertState = (payload) => ({
+export const setAlertState = (payload: any) => ({
 	type: SET_ALERT_STATE,
 	payload,
 });
 
-export const setRunState = (payload) => ({
+export const setRunState = (payload: any) => ({
 	type: SET_RUN_STATE,
 	payload,
 });
 
-export const setPause = (payload) => ({
+export const setPause = (payload: any) => ({
 	type: SET_PAUSE,
 	payload,
 });
 
-export const setGps = (payload) => ({
+export const setGps = (payload: any) => ({
 	type: SET_GPS,
 	payload,
 });
 
-export const setMap = (payload) => ({
+export const setMap = (payload: any) => ({
 	type: SET_MAP,
 	payload,
 });
 
-export const setGeolocate = (payload) => ({
+export const setGeolocate = (payload: any) => ({
 	type: SET_GEOLOCATE,
 	payload,
 });
 
-export const resetMapState = (payload) => ({
+export const resetMapState = (payload: any) => ({
 	type: RESET_MAP_STATE,
 	payload,
 });
@@ -66,7 +66,7 @@ const mapState = {
 	isPaused: false,
 };
 
-export function mapReducer(state = mapState, action) {
+export function mapReducer(state = mapState, action: any) {
 	switch (action.type) {
 		case SET_DRAWER_STATE:
 			return produce(state, (draft) => {

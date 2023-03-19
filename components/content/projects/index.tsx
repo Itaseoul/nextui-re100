@@ -10,7 +10,7 @@ import { projects } from './utils';
 export const Projects = () => {
    return (
       <Box css={{ px: "$12", "@xsMax": { px: "$10" }, width: "100%" }}>
-         <Text h1 css={{ textGradient: "45deg, $blue600 -20%, $pink600 50%", }}>
+         <Text h1 css={{ textGradient: "45deg, $green600 25%, $pink600 45%", }}>
             업사이클
          </Text>
          <GridContainer

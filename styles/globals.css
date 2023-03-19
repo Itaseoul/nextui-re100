@@ -10,3 +10,8 @@ body {
    background-color: var(--nextui-colors-accents0);
    /* transition: background-color 0.2s ease; */
 }
+
+/* [data-theme='dark'] {
+   --background: black;
+   --foreground: white;
+ } */

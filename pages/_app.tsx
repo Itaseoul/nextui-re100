@@ -8,13 +8,6 @@ import { MainLayout } from "../components/layout/main-layout";
 import { SSRProvider } from "react-aria";
 import { NextPage } from "next";
 
-import global from "../track/utils/chakra";
-
-import DataProvider from "../track/context/DataProvider";
-import { ChakraProvider, ColorModeScript, theme } from "@chakra-ui/react";
-
-import { Provider as StoreProvider } from "react-redux";
-import store from "../track/store/rootreducer";
 
 
 const lightTheme = createTheme({
@@ -48,40 +41,36 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   return (
 
     <SSRProvider>
-      {/* chakra */}
-      <StoreProvider store={store}>
-        <ChakraProvider theme={global}>
-          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-          <DataProvider>
-            {/* chakra */}
-            <NextThemesProvider
-              defaultTheme="dark"
-              attribute="class"
-              value={{
-                light: lightTheme.className,
-                dark: darkTheme.className,
-              }}
-            >
-              <NextUIProvider>
-                <AnimatePresence
-                  mode='wait'
-                  initial={true}
-                  onExitComplete={() => {
-                    if (typeof window !== "undefined") {
-                      window.scrollTo({ top: 0 });
-                    }
-                  }}
-                >
-                  <MainLayout>
-                    <Component {...pageProps} />
-                  </MainLayout>
-                </AnimatePresence>
-              </NextUIProvider>
-            </NextThemesProvider>
 
-          </DataProvider>
-        </ChakraProvider>
-      </StoreProvider>
+      <NextThemesProvider
+        defaultTheme="system"
+        attribute="class"
+        value={{
+          light: lightTheme.className,
+          dark: darkTheme.className,
+        }}
+      >
+        <NextUIProvider>
+          <AnimatePresence
+            mode='wait'
+            initial={true}
+            onExitComplete={() => {
+              if (typeof window !== "undefined") {
+                window.scrollTo({ top: 0 });
+              }
+            }}
+          >
+            <MainLayout>
+
+              <Component {...pageProps} />
+
+
+            </MainLayout>
+          </AnimatePresence>
+        </NextUIProvider>
+      </NextThemesProvider>
+
+
 
     </SSRProvider>
 

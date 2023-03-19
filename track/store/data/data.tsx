@@ -11,7 +11,7 @@ interface ResetDataStateAction {
 
 interface SetDurationAction {
 	type: typeof SET_DURATION;
-	payload: number;
+	payload: string;
 }
 
 interface SetStartTimeAction {
@@ -33,7 +33,7 @@ type DataActionTypes =
 
 interface DataState {
 	distance: string;
-	duration: number;
+	duration: string;
 	startTime: number;
 	coords: any[];
 }
@@ -53,7 +53,7 @@ export const resetDataState = (): ResetDataStateAction => ({
 	type: RESET_DATA_STATE,
 });
 
-export const setDuration = (payload: number): SetDurationAction => ({
+export const setDuration = (payload: string): SetDurationAction => ({
 	type: SET_DURATION,
 	payload,
 });
@@ -70,7 +70,7 @@ export const setCoords = (payload: any): SetCoordsAction => ({
 
 const dataState: DataState = {
 	distance: "0.00",
-	duration: 0,
+	duration: "00:00:00",
 	startTime: 0,
 	coords: [],
 };

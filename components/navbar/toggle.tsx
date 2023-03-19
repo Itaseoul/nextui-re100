@@ -9,8 +9,9 @@ export const Toggle = () => {
    const { isDark, type } = useTheme();
 
    const toggleTheme = () => {
-      const audio = new Audio(isDark ? '/switch-on.mp3' : '/switch-off.mp3');
-      audio.play();
+      // const audio = new Audio(isDark ? '/switch-on.mp3' : '/switch-off.mp3');
+      // audio.play();
+
       setTheme(isDark ? 'light' : 'dark');
    };
 

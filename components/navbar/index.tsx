@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Navbar, Link, Text } from '@nextui-org/react';
+import { Navbar, Link, Text, Spinner } from '@nextui-org/react';
 import { LogoIcon } from '../icons/logo-icon';
 import { Toggle } from './toggle';
 import { useRouter } from 'next/router';
 import NextLink from 'next/link';
+import { FaFan, FaGlobe, FaRunning, FaSpinner } from 'react-icons/fa';
+import { BsGlobe2, BsPower, BsWind } from 'react-icons/bs';
+import { MdElectricBolt, MdOutlineEnergySavingsLeaf } from 'react-icons/md';
 
 export const NavbarWrapper = () => {
    const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
@@ -66,9 +69,9 @@ export const NavbarWrapper = () => {
                   },
                }}
             >
-               <LogoIcon />
-               <Text b color="inherit">
-                  ITASEOUL
+               <MdElectricBolt color="green" />
+               <Text b color="success" css={{ ml: "$3" }}>
+                  RE100Run
                </Text>
             </Navbar.Brand>
          </NextLink>

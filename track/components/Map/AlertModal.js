@@ -17,9 +17,9 @@ import { setRunHistory } from "../../store/history/history";
 import { resetMapState, setAlertState } from "../../store/map/map";
 import { displayToast } from "../../utils/helpers";
 
-function AlertModal({ timer, stopwatch }: any) {
-	const bg = useColorModeValue("gray.400", "gray.900");
-	const color = useColorModeValue("gray.900", "gray.400");
+function AlertModal({ timer, stopwatch }) {
+	const bg = useColorModeValue("green.400", "green.900");
+	const color = useColorModeValue("green.900", "green.400");
 	const { postRun } = useData();
 	const { isAlertOpen, map, geolocate, isRunInProgress } = useSelector((state) => state.map);
 	const { distance, duration, startTime } = useSelector((state) => state.data);

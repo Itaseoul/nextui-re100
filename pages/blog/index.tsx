@@ -40,7 +40,7 @@ const Blog = ({ sources }: Props) => {
   return (
     <BlogLayout>
       <Flex direction={"column"} css={{}}>
-        <Text h1 css={{ textGradient: "45deg, $blue600 -20%, $pink600 50%", }}>설명서</Text>
+        <Text h1 css={{ textGradient: "45deg, $green600 25%, $pink600 45%", }}>설명서</Text>
         <Text span css={{ color: "$accents8" }}>
           베타 버전 입니다.
         </Text>

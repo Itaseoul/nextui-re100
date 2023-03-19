@@ -22,6 +22,7 @@ import Map from "../../../track/components/Map/Map";
 import Stats from "../../../track/components/Stats/Stats";
 // import { useAuth } from "../context/AuthProvider";
 import { setMapDrawer } from "../../../track/store/map/map";
+import GetPowerStream from "./GetPowerStream";
 
 function RunMap() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -42,36 +43,10 @@ function RunMap() {
   }
 
   return (
-    <Box h="100vh" position="relative" overflow="hidden" color={color} bg={bg}>
+    <Box position="relative" overflow="hidden" color={color} bg={bg}>
       <Box h="100vh" p="20px" overflowY="scroll" overflowX="hidden">
+
         <VStack spacing="30px">
-          <HStack justify="space-between" w="100%">
-            <HStack>
-              <Heading as="h1">RE100Run</Heading>
-            </HStack>
-            <Menu placement="bottom-end">
-              <MenuButton
-                isRound
-                as={IconButton}
-                aria-label="Options"
-                icon={<FaUserAlt fontSize="20px" />}
-              />
-              <MenuList>
-                <MenuGroup title="Theme">
-                  <MenuItem
-                    icon={colorMode === "dark" ? <FaSun /> : <FaMoon />}
-                    onClick={toggleColorMode}>
-                    {colorMode === "light" ? "Dark" : "Light"}
-                  </MenuItem>
-                </MenuGroup>
-                <MenuGroup title="User">
-                  <MenuItem icon={<BiArrowFromRight fontSize="20px" />} onClick={handleSignOut}>
-                    SIGN OUT
-                  </MenuItem>
-                </MenuGroup>
-              </MenuList>
-            </Menu>
-          </HStack>
 
           <Center>
             <IconButton
@@ -83,8 +58,8 @@ function RunMap() {
               icon={<FaRunning fontSize="100px" />}
             />
           </Center>
-
-          <Stats />
+          <GetPowerStream />
+          {/* <Stats /> */}
 
         </VStack>
       </Box>

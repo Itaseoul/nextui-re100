@@ -1,4 +1,4 @@
-'use client'
+
 import { useEffect, useState } from 'react';
 import { realDB } from './firebase';
 import { ref, onValue, off, limitToLast, query } from "firebase/database"
@@ -11,7 +11,7 @@ interface EnergyData {
 
 export default function GetPowerStream() {
   const [earray, setEarray] = useState<EnergyData[]>([]);
-  const [curValue, setCurValue] = useState<number>(0);
+  const [curValue, setCurValue] = useState(0);
   const [sumValue, setSumValue] = useState<number>(0);
 
   useEffect(() => {
@@ -25,15 +25,17 @@ export default function GetPowerStream() {
       const energydata: EnergyData[] = [];
       let idnum = 0;
       for (let id in data) {
-        energydata.push({ ...data[id], id: idnum });
-        idnum++;
+        if (data[id] !== null) {
+          energydata.push({ ...data[id], id: idnum });
+          idnum++;
+        }
       }
       setEarray(energydata);
-      setCurValue(energydata[energydata.length - 1]?.value ?? 0);
+      setCurValue(energydata[energydata.length - 1].value ?? 0);
       // Set the current value to the last value in the array, or 0 if the array is empty
-
+      // 구동없을때 = 0.046611 value
       const valueArr = energydata.map((e) => Number((e.value * 1000000).toFixed(0)));
-      const filtereValueArr = valueArr.filter((e) => isNaN(e) === false && e >= 30000);
+      const filtereValueArr = valueArr.filter((e) => isNaN(e) === false && e < 70000);
       const sumValue = filtereValueArr.reduce(function add(sum, currValue) {
         return sum + currValue;
       }, 0);
@@ -59,7 +61,7 @@ export default function GetPowerStream() {
     <div>
       <div className="text-3xl">g</div>
       <p className="text-2xl">{convertSecToTime(chargingSeconds)}</p>
-      <p>Current value: {curValue.toFixed(3)}</p>
+      <p>Current value: {curValue}</p>
       {/* <pre>{JSON.stringify(earray, null, 4)}</pre> */}
     </div>
 
