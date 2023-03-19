@@ -32,7 +32,9 @@ export default function GetPowerStream() {
         }
       }
       setEarray(energydata);
-      setCurValue(energydata[energydata.length - 1].value ?? 0);
+      // setCurValue(energydata[energydata.length - 1].value ?? 0);
+      setCurValue(energydata.length > 0 ? energydata[energydata.length - 1].value ?? 0 : 0);
+
       // Set the current value to the last value in the array, or 0 if the array is empty
       // 구동없을때 = 0.046611 value
       const valueArr = energydata.map((e) => Number((e.value * 1000000).toFixed(0)));
@@ -63,7 +65,7 @@ export default function GetPowerStream() {
 
       <p className="curvalue">{convertSecToTime(chargingSeconds)}</p>
       <p className='curvalue'>Current value: {curValue}</p>
-      {/* <pre>{JSON.stringify(earray, null, 4)}</pre> */}
+      <pre>{JSON.stringify(earray, null, 4)}</pre>
     </div>
 
   );
