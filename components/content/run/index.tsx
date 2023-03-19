@@ -7,6 +7,11 @@ type Props = {}
 export default function Run({ }: Props) {
   return (
     // <GetPowerStream />
-    <RunMap />
+    <>
+      <GetPowerStream />
+      <RunMap />
+    </>
+
+
   )
 }

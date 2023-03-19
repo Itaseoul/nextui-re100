@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { realDB } from './firebase';
 import { ref, onValue, off, limitToLast, query } from "firebase/database"
 import { CalcmChargeFactor, convertSecToTime } from './calc'
+import { position } from '@chakra-ui/react';
 interface EnergyData {
   id: number;
   value: number;
@@ -58,10 +59,10 @@ export default function GetPowerStream() {
 
   const chargingSeconds = Number((sumValue / CalcmChargeFactor).toFixed(0))
   return (
-    <div>
-      <div className="text-3xl">g</div>
-      <p className="text-2xl">{convertSecToTime(chargingSeconds)}</p>
-      <p>Current value: {curValue}</p>
+    <div className='container-power'>
+
+      <p className="curvalue">{convertSecToTime(chargingSeconds)}</p>
+      <p className='curvalue'>Current value: {curValue}</p>
       {/* <pre>{JSON.stringify(earray, null, 4)}</pre> */}
     </div>
 

@@ -33,7 +33,7 @@ function Map() {
 		<Box
 			zIndex="100"
 			color={color}
-			bg={bg}
+			bg="#16181a"
 			userSelect="none"
 			position="absolute"
 			opacity={isDrawerOpen ? 1 : 0}

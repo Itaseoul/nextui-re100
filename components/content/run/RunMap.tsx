@@ -1,6 +1,7 @@
 import {
   Box,
   Center,
+  Flex,
   Heading,
   HStack,
   IconButton,
@@ -9,6 +10,7 @@ import {
   MenuGroup,
   MenuItem,
   MenuList,
+  Text,
   useColorMode,
   useColorModeValue,
   VStack,
@@ -43,11 +45,11 @@ function RunMap() {
   }
 
   return (
-    <Box position="relative" overflow="hidden" color={color} bg={bg}>
-      <Box h="100vh" p="20px" overflowY="scroll" overflowX="hidden">
 
-        <VStack spacing="30px">
+    <Box position="absolute" top='0' left='0' right='0' overflow="hidden" color={color} bg="#16181a">
 
+      <Box h="100vh" p="20px" overflowY="scroll" overflowX="hidden" alignItems="flex-end" >
+        <Flex h="100%" alignItems='flex-end' justifyContent='center' gap='2' p="20px">
           <Center>
             <IconButton
               aria-label="button"
@@ -55,14 +57,16 @@ function RunMap() {
               h="200px"
               w="200px"
               isRound={true}
+              bgColor="#17c964"
+              color="white"
               icon={<FaRunning fontSize="100px" />}
             />
+            <Text fontSize='3xl'>GPS</Text>
           </Center>
-          <GetPowerStream />
-          {/* <Stats /> */}
-
-        </VStack>
+        </Flex>
+        {/* <Stats /> */}
       </Box>
+
       <Map />
     </Box>
   );

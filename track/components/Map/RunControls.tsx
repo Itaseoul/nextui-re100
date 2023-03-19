@@ -174,6 +174,8 @@ function RunControls(props: any) {
 							aria-label="Pause"
 							fontSize="5vh"
 							borderRadius="full"
+							color={isPaused ? "white" : "black"}
+							bg={isPaused ? "red.500" : "green.500"}
 							h="15vh"
 							w="15vh"
 							icon={<BsPauseFill />}
