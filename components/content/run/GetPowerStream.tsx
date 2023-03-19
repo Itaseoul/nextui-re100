@@ -34,7 +34,7 @@ export default function GetPowerStream() {
       const minValue = getMinEnergyValue(energydata);
       const maxValue = getMaxEnergyValue(energydata);
       const estimatedServerTimeMs = getEstimatedServerTimeMs(data);
-      console.log(getFilteredEnergyValues(energydata), minValue, maxValue, estimatedServerTimeMs);
+      // console.log(getFilteredEnergyValues(energydata), minValue, maxValue, estimatedServerTimeMs);
     };
 
     onValue(recentdbRef, handleData);
