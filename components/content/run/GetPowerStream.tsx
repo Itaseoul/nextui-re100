@@ -38,7 +38,7 @@ export default function GetPowerStream() {
       // Set the current value to the last value in the array, or 0 if the array is empty
       // 구동없을때 = 0.046611 value
       const valueArr = energydata.map((e) => Number((e.value * 1000000).toFixed(0)));
-      const filtereValueArr = valueArr.filter((e) => isNaN(e) === false && e < 70000);
+      const filtereValueArr = valueArr.filter((e) => isNaN(e) === false && e > 70000);
       const sumValue = filtereValueArr.reduce(function add(sum, currValue) {
         return sum + currValue;
       }, 0);
