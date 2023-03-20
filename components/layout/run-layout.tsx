@@ -28,7 +28,7 @@ export const RunLayout = ({ children }: Props) => {
             <meta property="og:site_name" content="ITASEOUL" />
             <meta name="og:title" content="ITASEOUL" />
             <meta property="og:type" content="website" />
-            <title>ITASEOUL - Homepage</title>
+            <title>RE100.run | 지구에너지 러닝</title>
          </Head>
 
          {/* <NavbarWrapper /> */}
