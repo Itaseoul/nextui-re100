@@ -1,17 +1,17 @@
-import {NextPage, NextPageContext} from 'next';
-import {Badge, Button, Link, Text} from '@nextui-org/react';
-import {useRouter} from 'next/router';
-import React, {useEffect, useState} from 'react';
-import {projects} from '../../components/content/projects/utils';
-import {ArticleLayout} from '../../components/layout/article-layout';
-import {Flex} from '../../components/styles/flex';
+import { NextPage, NextPageContext } from 'next';
+import { Badge, Button, Link, Text } from '@nextui-org/react';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
+import { projects } from '../../components/content/projects/utils';
+import { ArticleLayout } from '../../components/layout/article-layout';
+import { Flex } from '../../components/styles/flex';
 import NextLink from 'next/link';
-import {GetStaticProps} from 'next';
-import {ChevronIcon} from '../../components/icons/chevron-icon';
+import { GetStaticProps } from 'next';
+import { ChevronIcon } from '../../components/icons/chevron-icon';
 import Image from 'next/image';
-import {Box} from '../../components/styles/box';
-import {LinkIcon} from '../../components/icons/link-icon';
-import {GithubIcon} from '../../components/icons/github-icon';
+import { Box } from '../../components/styles/box';
+import { LinkIcon } from '../../components/icons/link-icon';
+import { GithubIcon } from '../../components/icons/github-icon';
 
 type Project = typeof projects[0];
 
@@ -19,7 +19,7 @@ interface Props {
    project: Project;
 }
 
-const Index = ({project}: Props) => {
+const Index = ({ project }: Props) => {
    return (
       <ArticleLayout title={project.title}>
          <Flex
@@ -31,7 +31,7 @@ const Index = ({project}: Props) => {
                },
             }}
          >
-            <Box css={{'& img': {borderRadius: '$lg'}}}>
+            <Box css={{ '& img': { borderRadius: '$lg' } }}>
                <Image
                   src={project.img}
                   width={640}
@@ -43,12 +43,12 @@ const Index = ({project}: Props) => {
             </Box>
 
             <Flex
-               css={{'gap': '$6', '& path': {stroke: '$accents9'}}}
+               css={{ 'gap': '$6', '& path': { stroke: '$accents9' } }}
                align={'center'}
             >
                <NextLink href={'/projects'}>
                   <Link
-                     css={{fontSize: '$xl', fontWeight: '$semibold'}}
+                     css={{ fontSize: '$xl', fontWeight: '$semibold' }}
                      color={'primary'}
                   >
                      Projects
@@ -58,7 +58,7 @@ const Index = ({project}: Props) => {
                <Text
                   h3
                   css={{
-                     '@xsMax': {textAlign: 'center'},
+                     '@xsMax': { textAlign: 'center' },
                      'fontSize': '$xl',
                      'my': 0,
                   }}
@@ -74,22 +74,22 @@ const Index = ({project}: Props) => {
             >
                {project.description}
             </Text>
-            <Flex css={{gap: '$6'}} align={'center'}>
+            <Flex css={{ gap: '$6' }} align={'center'}>
                <Badge
                   variant="flat"
                   color={'primary'}
-                  css={{height: 'fit-content', border: 'none'}}
+                  css={{ height: 'fit-content', border: 'none' }}
                >
                   Platform
                </Badge>
                <Text span>{project.platform}</Text>
             </Flex>
 
-            <Flex css={{gap: '$6'}} align={'center'}>
+            <Flex css={{ gap: '$6' }} align={'center'}>
                <Badge
                   variant="flat"
                   color={'primary'}
-                  css={{height: 'fit-content', border: 'none'}}
+                  css={{ height: 'fit-content', border: 'none' }}
                >
                   Stack
                </Badge>
@@ -99,21 +99,21 @@ const Index = ({project}: Props) => {
             <Link
                block
                color="primary"
-               css={{gap: '$6'}}
+               css={{ gap: '$6' }}
                href={project.preview}
                target="_blank"
             >
-               Live preview <LinkIcon width={21} height={22} color="$primary" />
+               {/* Live preview <LinkIcon width={21} height={22} color="$primary" /> */}
             </Link>
 
             <Link
                block
                color="primary"
-               css={{gap: '$6'}}
+               css={{ gap: '$6' }}
                href={project.github}
                target="_blank"
             >
-               Github repo <GithubIcon />
+               {/* Github repo <GithubIcon /> */}
             </Link>
          </Flex>
       </ArticleLayout>
