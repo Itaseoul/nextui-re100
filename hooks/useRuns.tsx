@@ -1,8 +1,8 @@
 'use client'
-import { R100PowerStatsAtom, R100RunAtom, powerStatsT } from "@/v2.3.0_re100run_bak_redux_legacy/atoms_ref/data";
 import { useAuth } from "@/lib/supabase/supabase-auth-provider";
 import { useSupabase } from "@/lib/supabase/supabase-provider";
-import { ChatWithMessageCountAndSettings, R100PowerT, R100RunT, R100RunT_I } from "@/types/collections";
+import { R100PowerStatsAtom, R100RunAtom, powerStatsT } from "@/store/atoms";
+import { R100RunT } from "@/types/collections";
 import { useAtom, useAtomValue } from "jotai";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -35,7 +35,7 @@ const useRuns = () => {
   };
 
   const { data, error, isLoading, mutate } = useSWR(
-    user ? ["energyAll", user.id] : null,
+    user ? ["runall", user.id] : null,
     fetcher
   );
 
