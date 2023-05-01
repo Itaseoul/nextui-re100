@@ -17,7 +17,7 @@ import {
 	Map_isAlertOpen,
 	Map_isTelemetryOpen,
 	setRunHistory,
-	ReSet_Rundata_state,
+	Set_Reset_Rundata,
 	ReSet_Map_state
 } from "@/store/atoms"
 
@@ -35,7 +35,7 @@ function AlertModal({ timer, stopwatch }: TProps) {
 
 	const { supabase } = useSupabase();
 	const setRun = useSetAtom(setRunHistory)
-	const resetRun = useSetAtom(ReSet_Rundata_state)
+	const resetRun = useSetAtom(Set_Reset_Rundata)
 	const resetMap = useSetAtom(ReSet_Map_state)
 
 	const [isRunInProgress, setMap_isRunInProgress] = useAtom(Map_isRunInProgress);
