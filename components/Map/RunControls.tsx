@@ -9,7 +9,6 @@ import { memo, useEffect, useRef, useState } from "react";
 import { BsPauseFill, BsPlayFill, BsStopFill } from "react-icons/bs";
 import { TiRefresh } from "react-icons/ti";
 
-import { displayToast } from "../../v2.3.0_re100run_bak_redux_legacy/utils/helpers";
 import { useAtom, useSetAtom, useAtomValue } from "jotai";
 
 import {
@@ -190,7 +189,7 @@ function RunControls(props: TProps) {
         message = "GPS 연결이 없습니다!";
         break;
     }
-    displayToast(toast, 1, "error", message);
+    // displayToast(toast, 1, "error", message);
   }
 
   useEffect(() => {
