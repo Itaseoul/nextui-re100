@@ -1,5 +1,4 @@
 "use client";
-import { openAPIKeyHandlerAtom } from "@/v2.3.0_re100run_bak_redux_legacy/atoms_ref/chat";
 import { useAuth } from "@/lib/supabase/supabase-auth-provider";
 import { useSetAtom } from "jotai";
 import { LogOut, RefreshCcw } from "lucide-react";
@@ -19,7 +18,6 @@ import {
 const ProfileMenu = () => {
   const { theme, setTheme } = useTheme();
   const { user, signOut } = useAuth();
-  const apiKeyHandler = useSetAtom(openAPIKeyHandlerAtom);
   const router = useRouter();
   return (
     <DropdownMenu>
@@ -75,18 +73,7 @@ const ProfileMenu = () => {
           다크모드 Earth
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem
-          onClick={() => {
-            apiKeyHandler({
-              action: "remove",
-            });
-            router.push("/chat");
-          }}
-        >
-          <div className="flex items-center gap-2">
-            <RefreshCcw size="14" /> OpenAI API Key 재설정
-          </div>
-        </DropdownMenuItem>
+
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={signOut}>
           <div className="flex items-center gap-2">
