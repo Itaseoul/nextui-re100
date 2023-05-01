@@ -1,5 +1,5 @@
 'use client';
-import { DummyEnergyHistoryAtom } from "@/v2.3.0_re100run_bak_redux_legacy/atoms_ref/data";
+import { DummyEnergyHistoryAtom } from "@/store/atoms";
 import { useAtomValue } from "jotai";
 import React from 'react'
 
