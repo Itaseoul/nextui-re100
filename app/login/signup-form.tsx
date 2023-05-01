@@ -101,7 +101,7 @@ const SignUpForm = () => {
             type="submit"
             className="flex items-center w-full gap-2 mt-6"
           >
-            이메일로 로그인
+            이메일로 회원가입
             <Mail size="16" />
           </Button>
         </form>

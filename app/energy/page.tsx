@@ -15,7 +15,7 @@ export default function Home() {
         <MobileMenuButton />
 
         <Suspense fallback={<div>Loading...</div>}>
-          <TotalPowerStats />
+          {/* <TotalPowerStats /> */}
         </Suspense>
 
         <Suspense fallback={<div>Loading...</div>}>
