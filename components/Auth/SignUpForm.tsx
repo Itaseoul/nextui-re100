@@ -1,133 +1,133 @@
-/* eslint-disable react/no-children-prop */
-import {
-  Button,
-  FormControl,
-  Icon,
-  Input,
-  InputGroup,
-  InputRightAddon,
-  Text,
-  Tooltip,
-  useColorMode,
-  useColorModeValue,
-  useToast,
-  VStack,
-} from "@chakra-ui/react";
-import { useRouter } from "next/dist/client/router";
-import { useRef, useState } from "react";
-import { BiArrowFromBottom, BiInfoCircle, BiUser } from "react-icons/bi";
-import { useDispatch, useSelector } from "react-redux";
-import { useAuth } from "../../v2.3.0_re100run_bak_redux_legacy/context/AuthProvider";
-import { setEmailInputValue, setSubmitButtonState } from "../../store/auth/auth";
-import { displayToast } from "../../v2.3.0_re100run_bak_redux_legacy/utils/helpers";
+// /* eslint-disable react/no-children-prop */
+// import {
+//   Button,
+//   FormControl,
+//   Icon,
+//   Input,
+//   InputGroup,
+//   InputRightAddon,
+//   Text,
+//   Tooltip,
+//   useColorMode,
+//   useColorModeValue,
+//   useToast,
+//   VStack,
+// } from "@chakra-ui/react";
+// import { useRouter } from "next/dist/client/router";
+// import { useRef, useState } from "react";
+// import { BiArrowFromBottom, BiInfoCircle, BiUser } from "react-icons/bi";
+// import { useDispatch, useSelector } from "react-redux";
+// import { useAuth } from "../../v2.3.0_re100run_bak_redux_legacy/context/AuthProvider";
+// import { setEmailInputValue, setSubmitButtonState } from "../../store/auth/auth";
+// import { displayToast } from "../../v2.3.0_re100run_bak_redux_legacy/utils/helpers";
 
-export default function SignUpForm() {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const bg = useColorModeValue("gray.400", "gray.900");
-  const color = useColorModeValue("gray.900", "gray.400");
-  const inputRef = useRef();
-  const router = useRouter();
-  const toast = useToast();
-  const { enterAsGuest, sendEmailLink } = useAuth();
-  const [isTooltip, setIsTooltip] = useState(false);
-  const { emailInputValue, submitButton } = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
+// export default function SignUpForm() {
+//   const { colorMode, toggleColorMode } = useColorMode();
+//   const bg = useColorModeValue("gray.400", "gray.900");
+//   const color = useColorModeValue("gray.900", "gray.400");
+//   const inputRef = useRef();
+//   const router = useRouter();
+//   const toast = useToast();
+//   const { enterAsGuest, sendEmailLink } = useAuth();
+//   const [isTooltip, setIsTooltip] = useState(false);
+//   const { emailInputValue, submitButton } = useSelector((state) => state.auth);
+//   const dispatch = useDispatch();
 
-  const signUpSuccessToastId = 1;
-  const singUpErrorToastId = 2;
-  const signInSuccessToastId = 3;
-  const signInErrorToastId = 3;
+//   const signUpSuccessToastId = 1;
+//   const singUpErrorToastId = 2;
+//   const signInSuccessToastId = 3;
+//   const signInErrorToastId = 3;
 
-  function handleTooltipVisibility(bool) {
-    setIsTooltip(bool);
-  }
+//   function handleTooltipVisibility(bool) {
+//     setIsTooltip(bool);
+//   }
 
-  async function signIn() {
-    try {
-      await enterAsGuest();
-      dispatch(setSubmitButtonState(true));
-      displayToast(
-        toast,
-        signInSuccessToastId,
-        "success",
-        "Signed in as a guest, you will be redirected shortly.",
-        () => {
-          dispatch(setSubmitButtonState(false));
-          dispatch(setEmailInputValue(""));
-          router.reload();
-        },
-      );
-    } catch ({ message }) {
-      displayToast(toast, signInErrorToastId, "error", message, () => {
-        inputRef.current.focus();
-      });
-    }
-  }
+//   async function signIn() {
+//     try {
+//       await enterAsGuest();
+//       dispatch(setSubmitButtonState(true));
+//       displayToast(
+//         toast,
+//         signInSuccessToastId,
+//         "success",
+//         "Signed in as a guest, you will be redirected shortly.",
+//         () => {
+//           dispatch(setSubmitButtonState(false));
+//           dispatch(setEmailInputValue(""));
+//           router.reload();
+//         },
+//       );
+//     } catch ({ message }) {
+//       displayToast(toast, signInErrorToastId, "error", message, () => {
+//         inputRef.current.focus();
+//       });
+//     }
+//   }
 
-  async function sendLink() {
-    try {
-      await sendEmailLink(emailInputValue, window.location.href);
-      dispatch(setSubmitButtonState(true));
-      displayToast(toast, signUpSuccessToastId, "success", `We sent a link to ${emailInputValue}.`, () => {
-        dispatch(setSubmitButtonState(false));
-        localStorage.setItem("gorun-email", emailInputValue);
-        dispatch(setEmailInputValue(""));
-        router.push("/");
-      });
-    } catch ({ message }) {
-      displayToast(toast, singUpErrorToastId, "error", message, () => {
-        inputRef.current.focus();
-      });
-    }
-  }
+//   async function sendLink() {
+//     try {
+//       await sendEmailLink(emailInputValue, window.location.href);
+//       dispatch(setSubmitButtonState(true));
+//       displayToast(toast, signUpSuccessToastId, "success", `We sent a link to ${emailInputValue}.`, () => {
+//         dispatch(setSubmitButtonState(false));
+//         localStorage.setItem("gorun-email", emailInputValue);
+//         dispatch(setEmailInputValue(""));
+//         router.push("/");
+//       });
+//     } catch ({ message }) {
+//       displayToast(toast, singUpErrorToastId, "error", message, () => {
+//         inputRef.current.focus();
+//       });
+//     }
+//   }
 
-  return (
-    <form>
-      <FormControl>
-        <VStack spacing="20px">
-          <InputGroup w="100%">
-            <Input
-              _placeholder={{ color, opacity: 0.5 }}
-              ref={inputRef}
-              type="email"
-              placeholder="Email"
-              isRequired
-              value={emailInputValue}
-              onChange={(e) => dispatch(setEmailInputValue(e.target.value))}
-            />
-            <InputRightAddon
-              children={
-                <Tooltip
-                  isOpen={isTooltip}
-                  shouldWrapChildren
-                  hasArrow
-                  fontWeight="bold"
-                  placement="top"
-                  w="200px"
-                  label="We only need your email to sign you up!"
-                  aria-label="A tooltip">
-                  <Icon
-                    fontSize="25px"
-                    as={BiInfoCircle}
-                    onMouseEnter={() => handleTooltipVisibility(true)}
-                    onMouseLeave={() => handleTooltipVisibility(false)}
-                  />
-                </Tooltip>
-              }
-            />
-          </InputGroup>
-          <Button w="100%" leftIcon={<BiArrowFromBottom />} onClick={sendLink} isDisabled={submitButton}>
-            ENTER WITH EMAIL
-          </Button>
-          <Text>OR</Text>
-          <Button w="100%" leftIcon={<BiUser />} isDisabled={submitButton} onClick={signIn}>
-            ENTER AS GUEST
-          </Button>
-          <Text fontSize="10px" textAlign="center">
-            Made by SZ &copy;
-          </Text>
-        </VStack>
-      </FormControl>
-    </form>
-  );
-}
+//   return (
+//     <form>
+//       <FormControl>
+//         <VStack spacing="20px">
+//           <InputGroup w="100%">
+//             <Input
+//               _placeholder={{ color, opacity: 0.5 }}
+//               ref={inputRef}
+//               type="email"
+//               placeholder="Email"
+//               isRequired
+//               value={emailInputValue}
+//               onChange={(e) => dispatch(setEmailInputValue(e.target.value))}
+//             />
+//             <InputRightAddon
+//               children={
+//                 <Tooltip
+//                   isOpen={isTooltip}
+//                   shouldWrapChildren
+//                   hasArrow
+//                   fontWeight="bold"
+//                   placement="top"
+//                   w="200px"
+//                   label="We only need your email to sign you up!"
+//                   aria-label="A tooltip">
+//                   <Icon
+//                     fontSize="25px"
+//                     as={BiInfoCircle}
+//                     onMouseEnter={() => handleTooltipVisibility(true)}
+//                     onMouseLeave={() => handleTooltipVisibility(false)}
+//                   />
+//                 </Tooltip>
+//               }
+//             />
+//           </InputGroup>
+//           <Button w="100%" leftIcon={<BiArrowFromBottom />} onClick={sendLink} isDisabled={submitButton}>
+//             ENTER WITH EMAIL
+//           </Button>
+//           <Text>OR</Text>
+//           <Button w="100%" leftIcon={<BiUser />} isDisabled={submitButton} onClick={signIn}>
+//             ENTER AS GUEST
+//           </Button>
+//           <Text fontSize="10px" textAlign="center">
+//             Made by SZ &copy;
+//           </Text>
+//         </VStack>
+//       </FormControl>
+//     </form>
+//   );
+// }
