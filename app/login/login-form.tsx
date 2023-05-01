@@ -54,14 +54,13 @@ const LoginForm = () => {
         <div>
           <div className="text-4xl font-bold">로그인</div>
           <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-            반갑습니다!{" "}
+
             <span className="font-semibold text-neutral-800 dark:text-neutral-200">
               Re100Run
             </span>{" "}
             <span className="">
               에 오신 것을 환영합니다.{" "}
-            </span>{" "}
-            구글 계정으로 로그인 해주세요.
+            </span>
           </p>
         </div>
 
@@ -71,12 +70,12 @@ const LoginForm = () => {
           onClick={signInWithGoogle}
           className="flex items-center w-full gap-2 mt-6"
         >
-          구글 로그인 <FaGoogle className="w-8 h-8" />
+          구글 로그인 <FaGoogle className="w-4 h-4" />
         </Button>
 
         {/* Seperator */}
         <div className="flex items-center my-8">
-          <Separator /> <span className="mx-6">또는</span> <Separator />
+          <Separator /> <span className="mx-4 flex-shrink-0">또는</span> <Separator />
         </div>
 
         {/* Form Container */}
@@ -106,8 +105,11 @@ const LoginForm = () => {
             <Mail size="16" />
           </Button>
         </form>
-        <p className="py-4" onClick={() => setAuthPanel("signup")}>회원 가입하기</p>
-        <p className="py-4" onClick={() => setAuthPanel("reset")}>비밀번호 찾기</p>
+        <div className="flex items-center justify-between pt-4 text-neutral-200 font-semibold text-sm">
+          <p className="py-4" onClick={() => setAuthPanel("signup")}>회원가입하기</p>
+          {/* <p className="py-4" onClick={() => setAuthPanel("forgot")}>비밀번호 찾기</p> */}
+        </div>
+
 
       </div>
     </div>

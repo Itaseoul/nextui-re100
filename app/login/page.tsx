@@ -23,15 +23,15 @@ const LoginPage = () => {
               alt="re100run-logo"
             />
             <div className="mt-4">
-              <div className="text-2xl font-medium text-neutral-200">
-                RE100run for sustainable energy.
+              <div className="text-2xl font-bold text-neutral-200">
+                에너지를 모아 기부하세요.
               </div>
               <div className="max-w-xl text-sm text-neutral-200 py-2">
-                자가발전 에너지 러닝{" "}
+                23{" "}
                 <span className="font-medium text-neutral-200">
-                  이타서울.
+                  이타서울 RE100 이니셔티브 - {" "}
                 </span>{" "}
-                (주)헤럴드 경제 H.ECO AWARDS {" "}
+                (주)헤럴드 경제 H.ECO AWARDS 기념{" "}
                 {/* <Link
                   className="underline underline-offset-4"
                   href="https://platform.openai.com"
@@ -39,7 +39,7 @@ const LoginPage = () => {
                 >
                   수상
                 </Link> */}
-                .
+
               </div>
             </div>
           </div>

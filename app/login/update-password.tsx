@@ -50,7 +50,7 @@ const UpdatePassword = () => {
         <div>
           <div className="text-4xl font-bold">비밀번호 변경</div>
           <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-            반갑습니다!{" "}
+
             <span className="font-semibold text-neutral-800 dark:text-neutral-200">
               Re100Run
             </span>{" "}

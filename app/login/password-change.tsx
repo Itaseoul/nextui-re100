@@ -50,14 +50,14 @@ const PasswordChange = () => {
         <div>
           <div className="text-4xl font-bold">비밀번호 찾기</div>
           <p className="mt-2 text-neutral-600 dark:text-neutral-400">
-            반갑습니다!{" "}
+
             <span className="font-semibold text-neutral-800 dark:text-neutral-200">
               Re100Run
             </span>{" "}
             <span className="">
               에 오신 것을 환영합니다.{" "}
-            </span>{" "}
-            이메일을 입력해주세요.
+            </span>
+
           </p>
         </div>
 
@@ -81,7 +81,7 @@ const PasswordChange = () => {
             type="submit"
             className="flex items-center w-full gap-2 mt-6"
           >
-            이메일로 비밀번호 받기
+            가입 이메일로 비밀번호 받기
             <Mail size="16" />
           </Button>
         </form>
